@@ -1,34 +1,38 @@
-class FirTest {
-    public int test(FirNum firNum, int number) {
-        return firNum.calc(number);
-    }
-
+class ControlPanelTest {
     public static void main(String[] args) {
-        FirNum firNum = new FirNumSum();
-        FirTest firTest = new FirTest();
-
-        //Should be 6
-        System.out.println(firTest.test(firNum, 3));
+        new ControlPanel().control();
     }
 }
 
-class FirNum {
-    public int calc(int n) {
-        return n;
-    }
+class Altimeter{
+ @Override
+ public String toString(){
+   return "Measure height";
+   }
 }
 
-class FirNumSum extends FirNum{
-   int sum = 0 ;
-    @Override
-    public int calc(int n) {
-        for(int i = 1; i <= n; i++){
-            sum +=  i;
-        }
-        return sum;
+
+class AirGauge{
+  @Override
+  public String toString(){
+   return "Measure air pressure";
+  }
 }
-      
+
+class ControlPanel{
+  private Altimeter altimeter = new Altimeter();
+  private AirGauge airGauge = new AirGauge();
+
+  public void control(){
+    System.out.println(altimeter);
+    System.out.println(airGauge);
+  }
+
+
 
 }
+
+
+
 
 
